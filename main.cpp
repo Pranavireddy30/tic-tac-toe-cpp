@@ -32,14 +32,20 @@ bool makeMove(int row, int col, char symbol) {
 }
 void playerTurn(char symbol) {
     int row, col;
-    std::cout << "Player " << symbol << "\n";
-    std::cout <<"Enter row (0-2): ";
-    std::cin >> row;
-    std::cout <<"Enter column (0-2): ";
-    std::cin >> col;
-    if(!makeMove(row, col, symbol)) {
+    while(true) {
+        std::cout << "Player " << symbol << "\n";
+        std::cout <<"Enter row (0-2): ";
+        std::cin >> row;
+        std::cout <<"Enter column (0-2): ";
+        std::cin >> col;
+        if(row < 0 || row > 2 || col < 0 || col > 2) {
+            std::cout << "Invalid Position!\n";
+            continue;
+        }
+        if(makeMove(row, col, symbol)) {
+            break;
+        }
         std::cout << "Cell already occupied!.\n";
-        playerTurn(symbol);
     }
 }
 bool checkWinner(char symbol) {
@@ -64,6 +70,16 @@ bool checkWinner(char symbol) {
     }
     return false;
 }
+bool isBoardFull() {
+    for(int row = 0; row < 3; row++) {
+        for(int col = 0; col < 3; col++) {
+            if(board[row][col] == ' ') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 int main() {
     initializeBoard();
     char currentPlayer = 'X';
@@ -73,6 +89,11 @@ int main() {
         if(checkWinner(currentPlayer)) {
             displayBoard();
             std::cout << "Player "<< currentPlayer << " wins!\n";
+            break;
+        }
+        if(isBoardFull()) {
+            displayBoard();
+            std::cout << "It's a draw!\n";
             break;
         }
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
