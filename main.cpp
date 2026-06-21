@@ -23,14 +23,33 @@ void DisplayBoard() {
     }
     std::cout << "\n";
 }
-void makeMove(int row, int col, char symbol) {
+bool makeMove(int row, int col, char symbol) {
+    if(board[row][col] != ' ') {
+        return false;
+    }
     board[row][col] = symbol;
+    return true;
+}
+void playerTurn(char symbol) {
+    int row, col;
+    std::cout << "Player " << symbol << "\n";
+    std::cout <<"Enter row (0-2): ";
+    std::cin >> row;
+    std::cout <<"Enter column (0-2): ";
+    std::cin >> col;
+    if(!makeMove(row, col, symbol)) {
+        std::cout << "Cell already occupied!.\n";
+        playerTurn(symbol);
+    }
 }
 
 int main() {
     initializeBoard();
-    makeMove(0, 0, 'X');
-    makeMove(1, 1, 'O');
-    DisplayBoard();
+    char currentPlayer = 'X';
+    while(true) {
+        DisplayBoard();
+        playerTurn(currentPlayer);
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
     return 0;
 }
