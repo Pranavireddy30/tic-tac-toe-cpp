@@ -1,18 +1,36 @@
 #include <iostream>
 
-int main() {
-    int position;
+char board[3][3];
 
+void initializeBoard() {
+    for(int row = 0; row < 3; row++) {
+        for(int col = 0; col < 3; col++) {
+            board[row][col] = ' ';
+        }
+    }
+}
+
+void DisplayBoard() {
     std::cout << "\n";
-    std::cout << "-------------\n";
-    std::cout << "| 1 | 2 | 3 |\n";
-    std::cout << "-------------\n";
-    std::cout << "| 4 | 5 | 6 |\n";
-    std::cout << "-------------\n";
-    std::cout << "| 7 | 8 | 9 |\n";
-    std::cout << "-------------\n";
-    std::cout << "Choose the position (1-9): ";
-    std::cin>> position;
-    std::cout << "You have chosen position: " << position << std::endl;
+    for(int row = 0; row < 3; row++) {
+        std::cout << " ";
+        for(int col = 0; col < 3; col++) {
+            std::cout << board[row][col];
+            if(col < 2) std::cout << " | ";
+        }
+        std::cout << "\n";
+        if(row < 2) std::cout << "---+---+---\n";
+    }
+    std::cout << "\n";
+}
+void makeMove(int row, int col, char symbol) {
+    board[row][col] = symbol;
+}
+
+int main() {
+    initializeBoard();
+    makeMove(0, 0, 'X');
+    makeMove(1, 1, 'O');
+    DisplayBoard();
     return 0;
 }
