@@ -80,7 +80,7 @@ bool isBoardFull() {
     }
     return true;
 }
-int main() {
+void playGame() {
     initializeBoard();
     char currentPlayer = 'X';
     while(true) {
@@ -98,5 +98,14 @@ int main() {
         }
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
+}
+int main() {
+    char choice;
+    do {
+        playGame();
+        std::cout << "Do you want to play again? (y/n): ";
+        std::cin >> choice;
+    } while(choice == 'y' || choice == 'Y');
+    std::cout << "Thank you for playing!\n";
     return 0;
 }
