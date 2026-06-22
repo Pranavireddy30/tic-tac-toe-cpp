@@ -1,5 +1,7 @@
 # Tic Tac Toe (C++)
 
+Current Version: v1.0.0
+
 A console-based Tic Tac Toe game built in C++ as a learning project to practice object-oriented programming, project structure, and build systems.
 
 ## Features
@@ -7,7 +9,6 @@ A console-based Tic Tac Toe game built in C++ as a learning project to practice 
 - Two-player gameplay (Player X vs Player O)
 - Win detection
 - Draw detection
-- Input validation
 - Replay option
 - Object-oriented design
 - CMake build support
@@ -71,15 +72,28 @@ On Windows:
 TicTacToe.exe
 ```
 
-## Future Improvements
+## Roadmap
 
-- Scoreboard
-- Better input validation
-- Improved board UI
-- Single-player mode
-- Computer AI opponent
-- Unit tests
+### v1.0.0
+- [x] Two-player gameplay
+- [x] Win detection
+- [x] Draw detection
+- [x] Replay functionality
+- [x] Object-oriented design
+- [x] CMake support
+
+### v1.1.0
+- [ ] Scoreboard
+- [ ] Better board UI
+- [ ] Input validation
+
+### v1.2.0
+- [ ] Computer opponent
+
+### v2.0.0
+- [ ] Minimax AI
+- [ ] Unbeatable computer player
 
 ## Author
 
-Built as a C++ learning project.
+Built as a learning project while exploring modern C++ development practices.
