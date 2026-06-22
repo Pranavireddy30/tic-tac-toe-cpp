@@ -1,6 +1,6 @@
 # Tic Tac Toe (C++)
 
-Current Version: v1.0.0
+Current Version: v1.1.0
 
 A console-based Tic Tac Toe game built in C++ as a learning project to practice object-oriented programming, project structure, and build systems.
 
@@ -9,8 +9,11 @@ A console-based Tic Tac Toe game built in C++ as a learning project to practice 
 - Two-player gameplay (Player X vs Player O)
 - Win detection
 - Draw detection
-- Replay option
-- Object-oriented design
+- Replay functionality
+- Persistent scoreboard across games
+- Improved board display with row and column labels
+- Input validation
+- Object-oriented design using classes
 - CMake build support
 
 ## Project Structure
@@ -20,24 +23,30 @@ TicTacToe/
 │
 ├── include/
 │   ├── Board.h
-│   └── Game.h
+│   ├── Game.h
+│   └── Scoreboard.h
 │
 ├── src/
 │   ├── Board.cpp
 │   ├── Game.cpp
+│   ├── Scoreboard.cpp
 │   └── main.cpp
 │
 ├── CMakeLists.txt
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ## Concepts Practiced
 
 - Classes and Objects
 - Encapsulation
+- References
+- Constructors
 - Arrays
-- Loops
 - Functions
+- Loops
+- Input Validation
 - Header Files (.h)
 - Source Files (.cpp)
 - CMake
@@ -84,8 +93,8 @@ TicTacToe.exe
 
 ### v1.1.0
 - [x] Scoreboard
-- [ ] Better board UI
-- [ ] Input validation
+- [x] Better board UI
+- [x] Input validation
 
 ### v1.2.0
 - [ ] Computer opponent
