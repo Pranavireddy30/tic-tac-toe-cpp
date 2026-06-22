@@ -12,15 +12,15 @@ void Board::initialize() {
     }
 }
 void Board::display() {
-    std::cout << "\n";
+    std::cout << "\n  0   1   2\n\n";
     for(int row = 0; row < 3; row++) {
-        std::cout << " ";
+        std::cout << row << " ";
         for(int col = 0; col < 3; col++) {
-            std::cout << board[row][col];
-            if(col < 2) std::cout << " | ";
+            std::cout << " " << board[row][col] << " ";
+            if(col < 2) std::cout << "|";
         }
         std::cout << "\n";
-        if(row < 2) std::cout << "---+---+---\n";
+        if(row < 2) std::cout << "  ---+---+---\n";
     }
     std::cout << "\n";
 }
