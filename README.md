@@ -83,7 +83,7 @@ TicTacToe.exe
 - [x] CMake support
 
 ### v1.1.0
-- [ ] Scoreboard
+- [x] Scoreboard
 - [ ] Better board UI
 - [ ] Input validation
 

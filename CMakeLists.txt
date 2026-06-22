@@ -11,4 +11,5 @@ add_executable(
     src/main.cpp
     src/Board.cpp
     src/Game.cpp
+    src/Scoreboard.cpp
 )

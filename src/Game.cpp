@@ -1,6 +1,6 @@
 #include "../include/Game.h"
 #include <iostream>
-Game::Game() {
+Game::Game(Scoreboard& scoreboard) : scoreboard(scoreboard) {
     currentPlayer = 'X';
 }
 void Game::switchPlayer()
@@ -39,12 +39,20 @@ void Game::playGame() {
         playerTurn();
         if(board.checkWinner(currentPlayer)) {
             board.display();
+            if(currentPlayer == 'X') {
+                scoreboard.addXWin();
+            } else {
+                scoreboard.addOWin();
+            }
             std::cout << "Player "<< currentPlayer << " wins!\n";
+            scoreboard.display();
             break;
         }
         if(board.isBoardFull()) {
             board.display();
-            std::cout << "It's a draw!\n";
+            scoreboard.addDraw();
+            std::cout << "\nDraw!\n";
+            scoreboard.display();
             break;
         }
         switchPlayer();
