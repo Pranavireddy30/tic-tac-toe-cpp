@@ -20,8 +20,19 @@ void Game::playerTurn() {
         std::cout << "Player " << currentPlayer << "\n";
         std::cout <<"Enter row (0-2): ";
         std::cin >> row;
+        if(!(std::cin >> row)) {
+            std::cout << "Invalid input. Please enter a number between 0 and 2.\n";
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            continue;
+        }
         std::cout <<"Enter column (0-2): ";
-        std::cin >> col;
+        if(!(std::cin >> col)) {
+            std::cout << "Invalid input. Please enter a number between 0 and 2.\n";
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            continue;
+        }
         if(row < 0 || row > 2 || col < 0 || col > 2) {
             std::cout << "Invalid Position!\n";
             continue;
